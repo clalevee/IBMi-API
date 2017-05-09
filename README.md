@@ -7,10 +7,29 @@ It's a template you can use during hands-on, demonstrating how to create REST we
 
 ## Complete the app
 
-You have first to complete the code.
+You have first to complete the code.<BR>
 2 web services are defines. 
 + The first to retrieve elapsed cpu used
 + The second to retrieve system asp used
+
+Example of code:<BR>
+	var result = {};
+	var sql = "SELECT system_asp_used FROM QSYS2.SYSTEM_STATUS_INFO";
+    
+	try {
+			console.log("SQL: " + sql);
+			db.exec(sql, function(rs) {       
+				console.log (JSON.stringify(rs));
+				if(rs.length != 0) {
+					res.json(rs[0]);
+				} else {
+					res.json(500);
+				}
+			});
+	} catch(e) {  // Exception handler
+        console.log("Error: " + e);
+        res.json(500);
+	}
  
 ## Run the app locally
 
