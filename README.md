@@ -12,11 +12,11 @@ You have first to complete the code.<BR>
 + The first to retrieve elapsed cpu used
 + The second to retrieve system asp used
 
-Example of code:<BR>
-	var result = {};
-	var sql = "SELECT system_asp_used FROM QSYS2.SYSTEM_STATUS_INFO";
-    
-	try {
+Example of code (retrieve % ASP used):<BR>
+
+		var result = {};
+		var sql = "SELECT system_asp_used FROM QSYS2.SYSTEM_STATUS_INFO"; 
+		try {
 			console.log("SQL: " + sql);
 			db.exec(sql, function(rs) {       
 				console.log (JSON.stringify(rs));
@@ -26,10 +26,10 @@ Example of code:<BR>
 					res.json(500);
 				}
 			});
-	} catch(e) {  // Exception handler
-        console.log("Error: " + e);
-        res.json(500);
-	}
+		} catch(e) {  // Exception handler
+   		     console.log("Error: " + e);
+      		  res.json(500);
+		}
  
 ## Run the app locally
 
