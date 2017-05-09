@@ -29,14 +29,14 @@ console.log ("DB2 connect done");
 // Web Service #1 ------------------------------------------------------------------------
 
 app.get('/system/cpu', function(req, res, next) {
-    // replace following line by you Web Service code
+    // replace following line with you Web Service code
     res.json(204);
 });
 
 // Web Service #2 ------------------------------------------------------------------------
 
 app.get('/system/asp', function(req, res, next) {
-    // replace following line by you Web Service code
+    // replace following line with you Web Service code
     res.json(204);
 });
 
