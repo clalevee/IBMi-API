@@ -8,7 +8,7 @@ It's a template you can use during hands-on, demonstrating how to create REST we
 ## Complete the app
 
 You have first to complete the code.<BR>
-2 web services are defines. 
+2 web services are defined. 
 + The first to retrieve elapsed cpu used
 + The second to retrieve system asp used
 
@@ -22,11 +22,11 @@ Example of code (retrieve % ASP used):<BR>
 				console.log (JSON.stringify(rs));
 				if(rs.length != 0) {
 					res.json(rs[0]);
-				} else {
-					res.json(500);
+				} else { 
+					res.json(204); 	// No content
 				}
 			});
-		} catch(e) {  // Exception handler
+		} catch(e) {  				// Exception handler
 				console.log("Error: " + e);
 				res.json(500);
 		}
