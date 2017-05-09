@@ -27,8 +27,8 @@ Example of code (retrieve % ASP used):<BR>
 				}
 			});
 		} catch(e) {  				// Exception handler
-				console.log("Error: " + e);
-				res.json(500);
+			console.log("Error: " + e);
+			res.json(500);
 		}
  
 ## Run the app locally
