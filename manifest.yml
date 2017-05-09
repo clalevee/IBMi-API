@@ -1,4 +1,8 @@
 applications:
-- name: node-hello-world
-  memory: 128M
-  buildpack: sdk-for-nodejs
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: APIsrv
+  host: APIsrv
+  disk_quota: 1024M
