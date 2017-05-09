@@ -1,13 +1,12 @@
 {
-	"name": "NodejsStarterApp",
+	"name": "Nodejs4iStarterApp",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
 		"start": "node app.js"
 	},
 	"dependencies": {
-		"express": "4.13.x",
-		"cfenv": "1.0.x"
+		"express": "4.13.x"
 	},
 	"repository": {},
 	"engines": {

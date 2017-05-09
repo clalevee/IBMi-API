@@ -1,7 +1,7 @@
 # Node.js IBM i simple API
 
 This application demonstrates a simple, reusable Node.js web application based on the Express framework.
-It a template you can use during hands-on.
+It's a template you can use during hands-on.
 
 2 APIs should be exposed, created with simple DB2 for i SQL requests.
 
