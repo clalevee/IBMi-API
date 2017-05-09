@@ -1,16 +1,12 @@
 /*eslint-env node*/
 
 //------------------------------------------------------------------------------
-// node.js starter application for Bluemix
+// node.js starter application for IBM i
 //------------------------------------------------------------------------------
 
 // This application uses express as its web server
 // for more info, see: http://expressjs.com
 var express = require('express');
-
-// cfenv provides access to your Cloud Foundry environment
-// for more info, see: https://www.npmjs.com/package/cfenv
-var cfenv = require('cfenv');
 
 // create a new express server
 var app = express();
@@ -18,11 +14,7 @@ var app = express();
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
 
-// get the app environment from Cloud Foundry
-var appEnv = cfenv.getAppEnv();
-
 // Connect to DB2 for i ------------------------------------------------------------------
-
 // DB2 for i driver
 var db = require('/QOpenSys/QIBM/ProdData/OPS/Node4/os400/db2i/lib/db2');
 
@@ -34,61 +26,32 @@ console.log ("DB2 init done");
 db.conn("*LOCAL");
 console.log ("DB2 connect done");
 
-// ---------------------------------------------------------------------------------------
+// Web Service #1 ------------------------------------------------------------------------
 
 app.get('/system/cpu', function(req, res, next) {
-    var result = {};
-    var sql = "SELECT elapsed_cpu_used FROM QSYS2.SYSTEM_STATUS_INFO";
-    
-    try {
-   		console.log("SQL: " + sql);
-    	db.exec(sql, function(rs) {	  // Query the statement
-      		console.log (JSON.stringify(rs));
-			if(rs.length != 0) {
-				res.json(rs[0]);
-			} else res.json(500);
-        });
-        console.log ("Done");
-
-     } catch(e) {  // Exception handler
-     	console.log("Error: " + e);
-    	res.json(500);
-  	 }
+    // replace following line by you Web Service code
+    res.json(204);
 });
 
-// ---------------------------------------------------------------------------------------
+// Web Service #2 ------------------------------------------------------------------------
 
 app.get('/system/asp', function(req, res, next) {
-    var result = {};
-    var sql = "SELECT system_asp_used FROM QSYS2.SYSTEM_STATUS_INFO";
-    
-    try {
-   		console.log("SQL: " + sql);
-    	db.exec(sql, function(rs) {	  // Query the statement
-      		console.log (JSON.stringify(rs));
-			if(rs.length != 0) {
-				res.json(rs[0]);
-			} else res.json(500);
-        });
-        console.log ("Done");
-
-     } catch(e) {  // Exception handler
-     	console.log("Error: " + e);
-    	res.json(500);
-  	 }
+    // replace following line by you Web Service code
+    res.json(204);
 });
 
-
 // ---------------------------------------------------------------------------------------
+
+// hereunder, replace  19880 by TCP port you want to use
+var ServerPort = 19880;
 
 // start server on the specified port and binding host
-appEnv.port = 19880;
-app.listen(appEnv.port, '0.0.0.0', function() {
+app.listen(ServerPort, '0.0.0.0', function() {
   // print a message when the server starts listening
-  console.log("server starting on " + appEnv.port);
+  console.log("Server starting on " + ServerPort);
 });
 
-// ---------------------------------------------------------------------------------------
+// Handle exit events --------------------------------------------------------------------
 
 process.on('SIGINT', function () {
   console.log('SIGINT fired')
@@ -96,7 +59,7 @@ process.on('SIGINT', function () {
 });
 
 process.on('exit', function () {
-  console.log('exit fired');
+  console.log('Exit fired');
   console.log ("Close DB connection...");
   db.close();
 });
