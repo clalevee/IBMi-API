@@ -39,4 +39,4 @@ Example of code (retrieve % ASP used):<BR>
 + Run `npm start` to start the app
 + Access the running app in a browser at <http://localhost:xxxx>
 
-[Install Node.js]: https://www.ibm.com/developerworks/ibmi/library/i-native-js-app-ibmi-with-nodejs/ 
+[Install Node.js on IBM i]: https://www.ibm.com/developerworks/ibmi/library/i-native-js-app-ibmi-with-nodejs/ 
