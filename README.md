@@ -33,10 +33,10 @@ Example of code (retrieve % ASP used):<BR>
  
 ## Run the app locally
 
-1. [Install Node.js][]
+1. [Install Node.js on IBM i][]
 + cd into this project's root directory
 + Run `npm install` to install the app's dependencies
 + Run `npm start` to start the app
 + Access the running app in a browser at <http://localhost:xxxx>
 
-[Install Node.js]: https://nodejs.org/en/download/
+[Install Node.js]: https://www.ibm.com/developerworks/ibmi/library/i-native-js-app-ibmi-with-nodejs/ 
